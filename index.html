@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Word Dissimilarity Calculator</title>
+  <link rel="stylesheet" href="style.css"> 
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/universal-sentence-encoder"></script>
+  <script src="script.js"></script>
+</head>
+<body>
+  <div class="container">
+    <h1>Calculate Word Dissimilarity</h1>
+    <div id="explanation">Enter 5 (or less) words, your score is based off of how semantically different all of the words are... for example 'blue' and 'red' will have a low score, while 'couch' and 'absolute' will give a higher score.</div>
+    <input type="text" id="word1" placeholder="Word 1">
+    <input type="text" id="word2" placeholder="Word 2">
+    <input type="text" id="word3" placeholder="Word 3">
+    <input type="text" id="word4" placeholder="Word 4">
+    <input type="text" id="word5" placeholder="Word 5">
+    <button onclick="calculateDissimilarity()" id="Button">Calculate</button>
+  </div>
+  <div class="container">
+    <div id="staticresult">Your Score:</div>
+    <div id="result">Model Loading...</div>
+  </div>
+</body>
+</html>
