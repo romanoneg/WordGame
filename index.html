@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>The Dissimilarity WordGame</title>
+  <title>R's WordGame</title>
   <link rel="stylesheet" href="style.css"> 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
@@ -12,13 +12,14 @@
 <body>
   <div class="container">
     <h1>The Dissimilarity WordGame</h1>
-    <div id="explanation">Enter 5 (or less) words, your score is based off of how semantically different all of the words are... for example 'blue' and 'red' will have a low score, while 'couch' and 'absolute' will give a higher score. <br><br>
+    <div id="explanation">Enter 5 (or less) words, your score is based on of how semantically different all of the words are... for example 'blue' and 'red' will have a low score, while 'couch' and 'absolute' will give a higher score. <br><br>
     CHALLENGE: For a challenge be given one of the 5 words!</div>
     <input type="text" id="word1" placeholder="Word 1">
     <input type="text" id="word2" placeholder="Word 2">
     <input type="text" id="word3" placeholder="Word 3">
     <input type="text" id="word4" placeholder="Word 4">
     <input type="text" id="word5" placeholder="Word 5">
+    <div id="word5-clear-container"></div>
     <div class="button-group"> 
       <button onclick="challengeMe()" id="ChallengeButton">Challenge Me!</button>
       <button onclick="calculateDissimilarity()" id="Button">Calculate</button>

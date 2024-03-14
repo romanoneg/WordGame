@@ -27,19 +27,25 @@ async function calculateDissimilarity() {
     return;
   }
 
-  $("#result").text("Calculating... BeepBoop");
-
   const sentences = [
     $("#word1").val(), 
     $("#word2").val(),
     $("#word3").val(),
     $("#word4").val(),
     $("#word5").val()
-  ];
+  ].filter(word => word !== '');
 
+  console.log(sentences);
+  if (sentences.length === 0){
+    $("#result").text("Enter at least one word please :)");
+    return;
+  }
+
+  $("#result").text("Calculating... BeepBoop");
 
   model.embed(sentences).then(embeddings => {
     console.log("here");
+    console.log(embeddings);
     // Calculate average dissimilarity
     const similarities = [];
     for (let i = 0; i < embeddings.shape[0]; i++) {
@@ -63,6 +69,20 @@ function challengeMe() {
   const randomWord = wordList[randomIndex];
   document.getElementById("word5").value = randomWord;
   document.getElementById("word5").readOnly = true;
+
+  // Create the "X" button 
+  const clearButton = document.createElement('button');
+  clearButton.id = 'word5-clear';
+  clearButton.textContent = 'X';
+  const clearContainer = document.getElementById('word5-clear-container');
+  clearContainer.appendChild(clearButton);
+
+  // Add event listener to clear the input and remove the 'X' button
+  clearButton.addEventListener('click', () => {
+    document.getElementById("word5").value = "";
+    document.getElementById("word5").readOnly = false;
+    clearContainer.removeChild(clearButton); // Remove the "X" button 
+  });
 }
 
 // Helper function to calculate cosine similarity between TensorFlow.js tensors

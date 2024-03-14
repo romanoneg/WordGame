@@ -68,6 +68,28 @@ input[type="text"] {
   cursor: pointer;    
 }
 
+#word5-clear-container {
+  display: inline-block; 
+  margin-left: -5px; 
+  position: relative;    /* Add this for positioning */
+}
+
+#word5-clear { 
+  color: grey;
+  background-color: transparent; /* Match placeholder color */
+  border: none;
+  padding: 2px 5px;         /* Make it thinner */
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 13pt; 
+  outline: none;            /* Remove outline on focus */
+  position: absolute;       /* Absolute positioning to prevent shifting */
+  right: -25px;
+  top: -7px;                 /* Center vertically */
+  transform: translateY(-50%); /* Part of the vertical centering */
+} 
+
+
 #explanation {
   margin: 30px;
 }
